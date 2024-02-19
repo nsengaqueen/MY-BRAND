@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+.nav {
+  height: 5rem;
+  top: 0;
+  display: flex;
+  gap: 32rem;
+  position: fixed;
+  width: 100%;
+  background-color: black;
+
+  /* color: #fee60c; */
+  border-bottom: 1px solid #B336FF ;
+}
+.logo {
+  color: #B336FF;
+  padding-left: 40px;
+  font-size: 25px;
+}
+ul li a {
+  color:#B336FF;
+  font-size: 18px;
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  float: right;
+  padding-right: 30px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/* ==================================================== */
+nav {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 15px;
+  display: block;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+nav a:hover {
+  background-color: #B336FF;
+  color: black;
+  border-radius: 5px;
+}
+.checkbtn {
+  font-size: 50px;
+  color: #B336FF;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+.leftnav {
+  padding-top: 30px;
+}
+.rightnav {
+  width: 100%;
+  padding-top: 30px;
+}
+a {
+  text-decoration: none !important;
+}
+section {
+  background-color: black;
+  display: flex;
+}
+.left-container {
+  padding-top: 10rem !important;
+  width: 20%;
+  height: 35rem;
+  background-color:black;
+
+  /* border-right: 1px solid #fee60c; */
+}
+
+.dashboard {
+  display: flex;
+}
+header {
+  /* background-color: #3498db; */
+  color: #fff;
+  padding: 20px;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+.message-lists {
+  padding-top: 3rem;
+  /* max-width: 800px; */
+  padding-right: 10px;
+  padding-right: 10px;
+  margin: 10px auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.message {
+  /* background-color: #fff; */
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.message-info {
+  display: grid;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sender {
+  font-weight: bold;
+}
+
+.date {
+  color: #555;
+}
+
+.message-content {
+  margin: 0;
+}
+.reply-container {
+  margin-top: 10px;
+}
+
+.reply-input {
+  width: calc(100% - 80px);
+  padding: 8px;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.reply-btn {
+  width: 70px;
+  background-color:#B336FF;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+/* =========================== */
+@media screen and (max-width: 970px) {
+  .nav {
+    height: 5rem;
+    top: 0;
+    display: flex;
+    gap: 4rem;
+    width: 100%;
+  }
+  #dashboard {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .left-container {
+    padding-top: 5rem !important;
+    padding-left: 0rem;
+    padding-right: 10px;
+    width: 100%;
+    height: 0;
+    display: flex;
+  }
+  nav {
+    display: flex;
+  }
+  nav a {
+    font-size: 12px;
+  }
+  .all-message {
+    margin-top: 30px;
+  }
+  .message-lists {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #dashboard {
+    width: 100%;
+  }
+  .message-lists {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .nav {
+    height: 5rem;
+    top: 0;
+    display: flex;
+    gap: 4rem;
+    /* position: fixed; */
+    width: 100%;
+  }
+  #dashboard {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .message-lists {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10px;
+  }
+  .left-container {
+    padding-top: 5rem !important;
+    width: 100%;
+    height: 0;
+    display: flex;
+  }
+}
+@media screen and (max-width: 435px) {
+  .logo {
+    color:white;
+    padding-left: 40px;
+    font-size: 18px;
+  }
+  ul li a {
+    color: white;
+    font-size: 16px;
+  }
+}

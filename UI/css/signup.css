@@ -1,0 +1,56 @@
+*{
+    background: black; 
+   color: white;
+}
+
+
+
+form input{
+   width: 50%;
+   border: 0;
+   background: #1b1a1b;
+   padding: 15px;
+   margin: 15px 0;
+   color:white;
+   font-size: 18px;
+   border-radius: 6px;
+   
+
+}
+ #submit{
+   width: 53.5%;
+ }
+ #submit:hover{
+   background:#B336FF ;
+ }
+
+h1{
+ color:#B336FF ;
+ text-align: center;
+ font-weight: 900;
+}
+
+form{
+   padding-left:40%;
+   padding-top:5%
+}
+
+
+.input-group span{
+   font-size: 18px;
+   color: rgb(196, 41, 41);
+}
+#submit-error{
+   color:rgb(196, 41, 41) ;
+} 
+
+.account a{
+   text-decoration: none;
+   color: #B336FF;
+   font-size: 25px;
+}
+
+.fa-regular{
+   background-color:black;
+   color: #726672;
+   }

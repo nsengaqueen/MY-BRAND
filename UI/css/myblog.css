@@ -1,0 +1,26 @@
+body{
+    padding: 5px 8%;
+    color: white;
+    background-color: black;
+    font-size: 30px;
+}
+h1{
+    text-align: center;
+}
+.blogwords{
+    text-align: center;
+}
+img{
+    border-radius: 30px;
+    margin-left: 20%;
+}
+.blogheader{
+    color:#B336FF ;
+    font-size: 30px;
+    padding: 50px ;
+    padding-left: 30%;
+}
+.icons{
+    padding-left: 40%;
+    justify-content: space-between;
+}
