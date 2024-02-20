@@ -4,7 +4,7 @@
     height: 100vh;
     background-color: black;
 }
-.form-container{
+.form_container{
     margin-top: 20px;
     width: 40vw;
     border-radius: 10px;
@@ -27,11 +27,11 @@ form button{
     border-radius: 7px;
     cursor: pointer;
 }
-.add-div{
+.add_div{
     width: 100%;
     padding:  10px 0px 0px 90px;
 }
-.add-div button{
+.add_div button{
     padding: 8px;
     background-color: green;
     color: white;
@@ -42,19 +42,29 @@ table{
     margin-top: 20px;
     text-align: center;
 }
-.update-form , .create-form{
-    display: none;
-}
+
+
 table button{
     cursor:pointer;
     padding: 5px;
     border-radius: 4px;
 }
-table.edit{
+.edit{
     background-color: blue;
     color: white;
 }
-table.delete{
+.delete{
     background-color: red;
     color: white;
+}
+.title{
+    color: white;
+    font-size: 30px;
+    padding-right: 20%;
+    color: #B336FF ;
+}
+.blogs{
+    color: white;
+    padding-top: 30%;
+    margin-right: 10%;
 }
