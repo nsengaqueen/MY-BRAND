@@ -13,6 +13,7 @@ body {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     color: #fff;
+    background-color: black;
   }
   .nav {
     height: 5rem;
@@ -74,9 +75,9 @@ body {
   }
   
   nav a:hover {
-    background-color: black;
+     
     color:#B336FF;
-    border-radius: 5px;
+  
   }
   .checkbtn {
     font-size: 50px;

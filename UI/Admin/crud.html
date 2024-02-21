@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Dashboard</title>
+    <link rel="stylesheet" href="../css/crud.css">
+</head>
+<body>
+    <div id="dashboard">
+        <h2>Blog Dashboard</h2>
+        <form id="blog-form">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="title" placeholder="Title" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <input type="file" id="image" accept="image/*" required>
+            <button type="submit">Add Blog</button>
+        </form>
+        <div id="blogs-list"></div>
+    </div>
+    <script src="../js/crud.js"></script>
+</body>
+</html>

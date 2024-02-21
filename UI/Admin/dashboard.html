@@ -1,18 +1,31 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DASHBOARD</title>
-    <link rel="stylesheet" href="../HTML/css/dashboard.css" />
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- <script
+      src="https://kit.fontawesome.com/yourcode.js"
+      crossorigin="anonymous"
+    ></script> -->
   </head>
-  <body>
+  <body onload="readAll()"></body>
     <div class="nav">
       <div class="leftnav">
-        <label for="" class="logo"> <a href="dashboard.html">DASHBOARD</a></label>
+       <!-- <label  class="logo"><a href="../Admin/users.html">DASHBOARD</a></label> -->
       </div>
       <div class="rightnav">
         <ul>
-          <li><a class="" href="dashboard.html">LOGOUT</a></li>
+          <li><a class="" href="../index.html">LOGOUT</a></li>
         </ul>
       </div>
     </div>
@@ -23,40 +36,47 @@
           <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
           </label>
-          <a href="../Admin/dashboard.html">DASHBOARD</a>
+          
           <a href="../Admin/users.html">USERS</a>
-          <a href="../Admin/blogs.html"> BLOGS</a>
-          <a href="../Admin/editblog.html">ADD A BLOG</a>
+          <a href="../Admin/blogs.html">BLOGS</a>
+          <a href="../Admin/editblog.html">NEW BLOG</a>
+
           <a href="../Admin/messages.html">MESSAGES</a>
           <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
         </nav>
       </div>
-      <div class="right-container">
-        <div class="add-title">
-          <h3>ADD A NEW BLOG</h3>
+      <div class="form_container">
+        <form  class="create_form">
+            
+            <input type="text" id="name" autocomplete="off"  placeholder="enter your name"/>
+            <input type="email" id="email" autocomplete="off"  class="email" placeholder="enter your email"/>
+            <button type="button" id="button"  onclick ="add()">Create</button>
+        </form>
+        <form  class="update_form">
+            <input type="text" id="id"  class="id"/>
+            <input type="text" id="uname"   class="uname"/>
+            <input type="email" id="uemail"  class="uemail"/>
+            <button type="button" id="button"  onclick="update()">Update</button>
+        </form>
+        <div class="add_div"> 
+            <button onclick="create()">Add +</button>
         </div>
+        <table>
+            <thead>
+                
+                <th>Name</th>
+                <th>Email</th>
+                
 
-        <div class="form-group">
-          <input type="text" placeholder="BLOG TITLE" />
-          <p id="nam"></p>
-        </div>
-        <div class="form-group">
-          <textarea
-            name="description"
-            placeholder=" BLOG DESCRIPTION"
-          ></textarea>
-          <p id="desc"></p>
-        </div>
-        <div class="form-group">
-          <input type="file" placeholder="Password" />
-          <p id="secret"></p>
-        </div>
-        <div class="form-group">
-          <input type="button" id="login" value="ADD BLOG" />
-        </div>
-      </div>
-    </section>
+            
+            </thead>
+            <tbody class="data_table">
 
-    <script src="../js/authorization.js"></script>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="../js/dashboard.js"></script>
+<!-- <script src="../js/authorization.js"></script> -->
   </body>
 </html>

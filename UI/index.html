@@ -20,7 +20,7 @@
                <li><a href="#projects">PROJECTS</a></li>
                <li><a href="#blogs">BLOG</a></li>
                <li><a href="#contact">CONTACT</a></li>
-               <li><a href="./login.html">LOG IN</a></li>
+               <li><a href="./login.html" id="loginLogoutButton">LOG IN</a></li>
 
                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
              </ul>
@@ -141,7 +141,7 @@ and make it easy for people to donate.
 
 <!-------------------------BLOGS------------------------------------>
 <div id="blogs">
-<div class="container">
+<div class="blogs-container">
   <h1 class="sub-title"> My Blogs</h1>
  <div class="bloglist">
   <div class="blog"> 
@@ -150,22 +150,24 @@ and make it easy for people to donate.
   <h3>How tech has changed our world</h3>
   <p>Technology is changing so fast in world and africa
     is seeing the most of it all
-    <a href="./myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
-    <div class="myicons"> <p>Comment <i class="fa-regular fa-comment"></i> </p> <p>Like <i class="fa-regular fa-heart"></i></p></div>
+    <a href="./Admin/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+   
   </p>
 </div>
 
   </div>
 <div class="blog">
-<img src="./images/mybrand img6.jpg" alt="">
-<div class="layer">
-  <h3>What coding means to children</h3>
-  <p>Technology is changing so fast in world and africa
-    is seeing the most of it all
-    <a href="./myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+  <div id="image"><img src="./images/mybrand img6.jpg" alt=""></div>
 
-    <div class="myicons"> <p>Comment <i class="fa-regular fa-comment"></i> </p> <p>Like <i class="fa-regular fa-heart"></i></p></div>
-  </p>
+<div class="layer">
+  <div id="title"> <h3>What coding means to children</h3></div>
+  <div id="description"><p>Technology is changing so fast in world and africa
+    is seeing the most of it all
+    <a href="./Admin/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+
+   
+  </p></div>
+  
   </div>
 </div>
 <div class="blog">
@@ -174,9 +176,9 @@ and make it easy for people to donate.
     <h3>What awaits designers in the future</h3>
     <p>Technology is changing so fast in world and africa
       is seeing the most of it all
-      <a href="./myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+      <a href="./Admin/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
 
-      <div class="myicons"> <p>Comment <i class="fa-regular fa-comment"></i> </p> <p>Like <i class="fa-regular fa-heart"></i></p></div>
+
     </p>
     </div>
 </div>
@@ -262,8 +264,8 @@ function closemenu(){
 </script>
 
 <!--------------------form validation----------------------------->
-<script>
-  
+<script src="../UI/js/script.js">
+
 </script>
 
 
