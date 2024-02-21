@@ -40,7 +40,7 @@ document.getElementById("submit").addEventListener("click", function () {
         // sessionStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("isLoggedIn", "true");
         window.location.href = user.trueAdmin
-          ? "./dashboardn.html"
+          ? "../Admin/dashboard.html"
           : "UI/index.html";
       } else {
         displayErrorMessage(
