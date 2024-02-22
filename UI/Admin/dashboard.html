@@ -1,82 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <!-- <script
-      src="https://kit.fontawesome.com/yourcode.js"
-      crossorigin="anonymous"
-    ></script> -->
-  </head>
-  <body onload="readAll()"></body>
-    <div class="nav">
-      <div class="leftnav">
-       <!-- <label  class="logo"><a href="../Admin/users.html">DASHBOARD</a></label> -->
-      </div>
-      <div class="rightnav">
-        <ul>
-          <li><a class="" href="../index.html">LOGOUT</a></li>
-        </ul>
-      </div>
-    </div>
-    <section id="dashboard">
-      <div class="left-container">
-        <nav>
-          <input type="checkbox" id="check" />
-          <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-          </label>
-          
-          <a href="../Admin/users.html">USERS</a>
-          <a href="../Admin/blogs.html">BLOGS</a>
-          <a href="../Admin/editblog.html">NEW BLOG</a>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="/UI/css/dashboard.css">
+</head>
+<body>
 
-          <a href="../Admin/messages.html">MESSAGES</a>
-          <a href="../Admin/subscribers.html">SUBSCRIBERS</a>
-        </nav>
-      </div>
-      <div class="form_container">
-        <form  class="create_form">
-            
-            <input type="text" id="name" autocomplete="off"  placeholder="enter your name"/>
-            <input type="email" id="email" autocomplete="off"  class="email" placeholder="enter your email"/>
-            <button type="button" id="button"  onclick ="add()">Create</button>
-        </form>
-        <form  class="update_form">
-            <input type="text" id="id"  class="id"/>
-            <input type="text" id="uname"   class="uname"/>
-            <input type="email" id="uemail"  class="uemail"/>
-            <button type="button" id="button"  onclick="update()">Update</button>
-        </form>
-        <div class="add_div"> 
-            <button onclick="create()">Add +</button>
-        </div>
-        <table>
-            <thead>
-                
-                <th>Name</th>
-                <th>Email</th>
-                
-
-            
-            </thead>
-            <tbody class="data_table">
-
-            </tbody>
-        </table>
-    </div>
+<div class="dashboard-nav">
+  <img src="/UI/images/queen (2).png" alt="">
+  <h1>Dashboard</h1>
+  <nav>
+   
+    <ul>
+      <li><a href="/UI/Admin/blogs.html">Blogs</a></li>
+      <li><a href="/UI/Admin/users.html">Users</a></li>
+      <li><a href="/UI/Admin/subscribers.html">Likes & Comments</a></li>
+      <li><a href="/UI/Admin/subscribers.html">Messages</a></li>
+    </ul>
+  </nav>
 </div>
-<script src="../js/dashboard.js"></script>
-<!-- <script src="../js/authorization.js"></script> -->
-  </body>
+
+<div class="content">
+ 
+  <p>Welcome to dashboard! Select a section from the menu.</p>
+
+</div>
+<script src="/UI/js/auntentication.js"></script>
+</body>
 </html>

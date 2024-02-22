@@ -6,7 +6,7 @@ document.getElementById("submit").addEventListener("click", function () {
     document.getElementById("email-error").textContent = "";
     document.getElementById("password-error").textContent = "";
     document.getElementById('loginError').textContent = "";
-    // resetErrorMessages();
+  
     var isValid = true;
     if (!email) {
         displayErrorMessage("email-error", "Please enter your email ");
@@ -30,11 +30,18 @@ document.getElementById("submit").addEventListener("click", function () {
             var user = truesuser.find((user) => user.email === email && user.password === password);
             if (user) {
             
-                // sessionStorage.setItem("isLoggedIn", "true");
+                
                 localStorage.setItem("isLoggedIn", "true");
-                window.location.href = user.trueAdmin
-                     ? "/UI/Admin/dashboard.html"
-                    : "../UI/index.html";
+                // window.location.href = user.trueAdmin
+                //      ? "../UI/Admin/dashboard.html"
+                //     : "../UI/index.html";
+                if (email === "nsengaqueen123@gmail.com" && password === "1234567") {
+                    localStorage.setItem("userRole", "admin");
+                    window.location.href = "../UI/Admin/dashboard.html";
+                  } else {
+                    localStorage.setItem("userRole", "user");
+                    window.location.href = "../UI/index.html";
+                  }
             }
             else {
                 displayErrorMessage("loginError", "Unrecognised email or password. Please try again.");
