@@ -63,6 +63,7 @@ img{
     padding-top: 50px;
     display: flex;
     justify-content: space-around;
+    
  }  
 #comment-input{
     border-radius: 10px;
