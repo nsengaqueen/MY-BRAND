@@ -31,7 +31,10 @@
 
   <div class="headertext">
     <img class="me" src="./images/queen (2).png" alt="">
-    <h1>Hi, I'm <span>Queen</span><br> Welcome to my Space!  </h1>
+    <h1>Hi, I'm <span class="myname">Queen</span>
+     <p class="welcome"> A software developer pleased that you passed by here 
+      see anything you like? feel free to reach out</p>
+    <br> Welcome to my Space!  </h1>
   </div>
  
  
@@ -105,7 +108,7 @@ contribute my skills to tackle challenging projects and grow professionally in
     <p>
       Utora voting system is an e-voting system that I worked on with my collegue, We
 wanted to create an innovative voting system that could replace the the old voting
-system that currently in use at the university.
+
 
     </p>
     <a href="#">Learn more</a>
@@ -117,7 +120,7 @@ system that currently in use at the university.
     <p>
       Utora voting system is an e-voting system that I worked on with my collegue, We
 wanted to create an innovative voting system that could replace the the old voting
-system that currently in use at the university.
+
     </p>
     <a href="#">Learn more</a>
   </div>
@@ -127,7 +130,7 @@ system that currently in use at the university.
     <p>
       Street canvas is a mobile app that i created with 2 of my colleagues to make a
 mobile app that would help street children get the help they need from the society
-and make it easy for people to donate.
+
 
 
     </p>
@@ -150,7 +153,7 @@ and make it easy for people to donate.
   <h3>How tech has changed our world</h3>
   <p>Technology is changing so fast in world and africa
     is seeing the most of it all
-    <a href="/UI/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+    <a href="./others.html/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
    
   </p>
 </div>
@@ -163,7 +166,7 @@ and make it easy for people to donate.
   <div id="title"> <h3>What coding means to children</h3></div>
   <div id="description"><p>Technology is changing so fast in world and africa
     is seeing the most of it all
-    <a href="/UI/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+    <a href="./others.html/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
 
    
   </p></div>
@@ -176,7 +179,7 @@ and make it easy for people to donate.
     <h3>What awaits designers in the future</h3>
     <p>Technology is changing so fast in world and africa
       is seeing the most of it all
-      <a href="/UI/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
+      <a href="./others.html/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
 
 
     </p>
@@ -192,7 +195,7 @@ and make it easy for people to donate.
 
 </div>
 </div>
-
+</div>
 <!-----------------------contact me------------------------->
 <div id="contact">
   <div class="container">
@@ -211,12 +214,25 @@ and make it easy for people to donate.
 <a href="./images/Nsenga Queen Mireille Cv.pdf" download class="btn btn2">Download cv</a>
   </div>
   <div class="contact-right">
-    <div id="error"></div>
-    <form>
-      <input id="name" type="text" name="name"  placeholder="Your name" >
-      <input id="email" type="email" name="email" placeholder="Your email" >
-      <textarea id="message"   name="message"   rows="6" placeholder="Your message"></textarea>
-      <button type="submit" class="btn btn2"> Submit</button>
+   
+    <form id="contactForm">
+
+      <div>
+        <input id="name" type="text"placeholder="Your name" >
+        <p id="name-error"></p>
+      </div>
+      <div>
+        <input id="email" type="email" id="email" placeholder="Your email" >
+        <p id="email-error"></p>
+      </div>
+
+      <div>
+        <textarea id="message"  rows="6" placeholder="Your message"></textarea>
+        <p id="message-error"></p>
+      </div>
+
+      <input type="submit" id="submit" class="btn btn2" value="Submit">
+      <p id="submit-error"></p>
     </form>
 
      
@@ -232,9 +248,10 @@ and make it easy for people to donate.
 </div>
 </div>
 
-
+<!----------------------------tabs----------------------------->
 
      <script>
+
 
 var tablinks = document.getElementsByClassName("tab-links");
 var tabcontents = document.getElementsByClassName("tab-contents");
@@ -264,6 +281,12 @@ function closemenu(){
 </script>
 
 <!--------------------form validation----------------------------->
+
+
+
+
+ 
+
 <script src="/UI/js/script.js">
 
 </script>

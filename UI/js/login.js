@@ -5,8 +5,6 @@ document.getElementById("submit").addEventListener("click", function () {
     let eyeicon = document.getElementById("eyeicon");
     document.getElementById("email-error").textContent = "";
     document.getElementById("password-error").textContent = "";
-    document.getElementById('loginError').textContent = "";
-  
     var isValid = true;
     if (!email) {
         displayErrorMessage("email-error", "Please enter your email ");
@@ -14,7 +12,9 @@ document.getElementById("submit").addEventListener("click", function () {
     }
     else if (!isValidEmail(email)) {
         displayErrorMessage("email-error", "Please enter a valid email address");
-        isValid = false;
+        isValid = false; document.getElementById('loginError').textContent = "";
+  
+   
     }
     if (!password) {
         displayErrorMessage("password-error", "Please enter a password");
@@ -33,14 +33,14 @@ document.getElementById("submit").addEventListener("click", function () {
                 
                 localStorage.setItem("isLoggedIn", "true");
                 // window.location.href = user.trueAdmin
-                //      ? "../UI/Admin/dashboard.html"
-                //     : "../UI/index.html";
+                //      ? "/UI/Admin/dashboard.html"
+                //     : "/UI/index.html";
                 if (email === "nsengaqueen123@gmail.com" && password === "1234567") {
                     localStorage.setItem("userRole", "admin");
-                    window.location.href = "../UI/Admin/dashboard.html";
+                    window.location.href = "/UI/Admin/dashboard.html";
                   } else {
                     localStorage.setItem("userRole", "user");
-                    window.location.href = "../UI/index.html";
+                    window.location.href = "/UI/index.html";
                   }
             }
             else {

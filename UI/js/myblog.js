@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById('submit-comment');
-    const commentInput = document.getElementById('comment-input');
+    const commentInput = document.getElementById('comment');
     const commentsList = document.getElementById('comments-list');
     let comments = JSON.parse(localStorage.getItem('comments')) || []; 
   
@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const li = document.createElement('li');
         li.textContent = comment;
         commentsList.appendChild(li);
+
+        
       });
     }
   
@@ -52,4 +54,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  document.getElementById('comments-likes').addEventListener('submit', function(event) {
+    event.preventDefault();
+    localStorage.setItem('users', email);
+    var comment = document.getElementById('comment').value.trim();
+    var user = localStorage.getItem('users'); // Retrieve the logged-in user's email
+    
+    if (comment-input) {
+      // Generate a unique key for the comment
+      var commentKey = 'comment_' + new Date().getTime();
+      
+      // Store the comment along with the user's email
+      localStorage.setItem(commentKey, JSON.stringify({ users, comment  }));
+      
+      // Reset the form and notify the user
+      document.getElementById('commentForm').reset();
+      alert('Comment submitted successfully!');
+      
+      // Optionally, update the display of comments
+      displayComments();
+    } else {
+      alert('Please enter a comment.');
+    }
+  });
   
