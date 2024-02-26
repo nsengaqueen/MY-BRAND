@@ -64,10 +64,11 @@ function saveusers() {
     if (isValid) {
         usersarray.push(user);
         setusers();
-        window.location.href = "/UI/others.html/login.html";
+        window.location.href = "../others.html/login.html";
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
         document.getElementById("confirmpassword").value = "";
+        alert("You have registered successfully!");
     }
 }
 let eyeicon = document.getElementById("eyeicon");
