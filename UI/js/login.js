@@ -37,10 +37,10 @@ document.getElementById("submit").addEventListener("click", function () {
                 //     : "/UI/index.html";
                 if (email === "nsengaqueen123@gmail.com" && password === "1234567") {
                     localStorage.setItem("userRole", "admin");
-                    window.location.href = "/UI/Admin/dashboard.html";
+                    window.location.href = "Admin/dashboard.html";
                   } else {
                     localStorage.setItem("userRole", "user");
-                    window.location.href = "/UI/index.html";
+                    window.location.href = "/index.html";
                   }
             }
             else {
