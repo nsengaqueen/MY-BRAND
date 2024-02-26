@@ -35,7 +35,7 @@ document.getElementById("submit").addEventListener("click", function () {
                
                 if (email === "nsengaqueen123@gmail.com" && password === "1234567") {
                     localStorage.setItem("userRole", "admin");
-                    // window.location.href = "Admin/dashboard.html";
+                    window.location.href = "Admin/dashboard.html";
                   } else {
                     localStorage.setItem("userRole", "user");
                     window.location.href = "/index.html";
