@@ -9,37 +9,28 @@ function isValidEmail(email) {
 function resetErrorMessages() {
     document.getElementById("email-error").textContent = "";
     document.getElementById("password-error").textContent = "";
+    document.getElementById("name-error").textContent = "";
 }
 function displayErrorMessage(id, message) {
     var errorMessageElement = document.getElementById(id);
     errorMessageElement.textContent = message;
     errorMessageElement.style.color = "red";
 }
-let usersarray = [];
-getusers();
-function getusers() {
-    var users = localStorage.getItem("users");
-    if (users) {
-        usersarray = JSON.parse(users);
-    }
-    else {
-        setusers();
-    }
-}
-function setusers() {
-    localStorage.setItem("users", JSON.stringify(usersarray));
-}
-function saveusers() {
+
+
+
+async function saveusers() {
+    var fullName = document.getElementById("fullName").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-    var confirmpassword = document.getElementById("confirmpassword").value;
+    
     resetErrorMessages();
     var isValid = true;
     var user = {
+        fullName:fullName.trim(),
         email: email.trim(),
         password: password.trim(),
-        confirmpassword: confirmpassword.trim(),
-        trueAdmin: false
+       
     };
     if (!user.email) {
         displayErrorMessage("email-error", "Please enter your email ");
@@ -53,24 +44,52 @@ function saveusers() {
         displayErrorMessage("password-error", "Please enter a password");
         isValid = false;
     }
-    else if (user.password.length <= 6) {
-        displayErrorMessage("password-error", "Password must be atleast 6 characters");
+    else if (user.password.length <= 8) {
+        displayErrorMessage("password-error", "Password must be atleast 8 characters");
         isValid = false;
     }
-    if (user.password !== user.confirmpassword) {
-        displayErrorMessage("confirmpassword-error", "passwords must be the same");
+    if (!user.fullName) {
+        displayErrorMessage("name-error", "Your name is required");
         isValid = false;
     }
     if (isValid) {
-        usersarray.push(user);
-        setusers();
-        window.location.href = "../others.html/login.html";
-        document.getElementById("email").value = "";
-        document.getElementById("password").value = "";
-        document.getElementById("confirmpassword").value = "";
-        alert("You have registered successfully!");
+        try {
+         
+    
+            const response = await fetch(
+              "https://my-brand-backend-1-g6ra.onrender.com/api/users/signup",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+              }
+            );
+    
+            if (response.ok) {
+                alert("You have registered successfully!");
+             window.location.href = "../others.html/login.html";
+              document.getElementById("fullName").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("password").value = "";
+              resetErrorMessage("submit-error");
+
+            } 
+             else {
+              throw new Error("Failed to to signup");
+            }
+          } catch (error) {
+            console.error("Error:", error.message);
+          
+          }
+        }
+        
+       
+       
+       
     }
-}
+
 let eyeicon = document.getElementById("eyeicon");
 eyeicon.onclick = function () {
     if (password.type == "password") {

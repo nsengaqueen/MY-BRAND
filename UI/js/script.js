@@ -1,5 +1,5 @@
 
-    const loginLogoutButton = document.getElementById('loginLogoutButton');
+    // const loginLogoutButton = document.getElementById('loginLogoutButton');
 
   
     function updateLoginLogoutButton() {

@@ -222,7 +222,7 @@ h1{
 #blogs{
   padding: 50px 8%;
 }
-.bloglist{
+#bloglist{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   grid-gap:40px;
@@ -233,7 +233,7 @@ h1{
   position: relative;
   overflow: hidden;
 }
-.blog img{
+.blogimg{
   width: 100%;
   border-radius: 10px;
   display: block;
@@ -248,17 +248,15 @@ h1{
   left: 0;
   bottom: 0;
   overflow: hidden;
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   padding: 0 40px;
   text-align: center;
   font-size: 14px;
   height: 0.5s;
 
 }
-.layer a{
+.layer{
   margin-top: 20px;
   color: #B336FF;
   text-decoration: none;
@@ -275,15 +273,15 @@ h1{
 
 
 }
-.layer h3{
+.blog_details{
   font-weight: 500;
   margin-bottom: 20px;
 }
-.blog:hover img{
+.blog:hover .b{
   transform: scale(1.1);
   
 }
-.blog:hover .layer{
+.blog:hover .blog_details{
   height: 100%;
 
 }
@@ -303,7 +301,8 @@ h1{
   background: #B336FF;
 }
 .tosubscribe{
-  padding-top: 70px;
+  padding: 70px;
+  
 }
 
 .myicons{
@@ -312,6 +311,23 @@ h1{
   display: flex;
   justify-content: space-between;
 }
+
+/* .blogimg{
+  width: 150px;
+  height:150px
+} */
+/* 
+.blog_details{
+  display: flex;
+  flex-direction: column;
+
+
+} */
+.blogs{
+  color: #bb6ced;
+  text-decoration: none;
+}
+
 
 /*------------------------contact--------------------------*/
 .contact-left{

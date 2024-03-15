@@ -11,7 +11,7 @@
 <body>
     
         <div id="header">
-        
+     
            <nav>
            <p class="logo">Queen</p> 
              <ul id="sidemenu">
@@ -146,46 +146,14 @@ mobile app that would help street children get the help they need from the socie
 <div id="blogs">
 <div class="blogs-container">
   <h1 class="sub-title"> My Blogs</h1>
- <div class="bloglist">
-  <div class="blog"> 
-    <img src="./images/rsz_—pngtree—retro_personal_computer_with_programmer_6937795.jpg" alt="">
-<div class="layer">
-  <h3>How tech has changed our world</h3>
-  <p>Technology is changing so fast in world and africa
-    is seeing the most of it all
-    <a href="./others.html/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
-   
-  </p>
-</div>
-
+ <div id="bloglist" class="bloglist">
+ 
+<div id="nblogs"></div>
   </div>
-<div class="blog">
-  <div id="image"><img src="./images/mybrand img6.jpg" alt=""></div>
 
-<div class="layer">
-  <div id="title"> <h3>What coding means to children</h3></div>
-  <div id="description"><p>Technology is changing so fast in world and africa
-    is seeing the most of it all
-    <a href="./others.html/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
-
-   
-  </p></div>
-  
-  </div>
-</div>
-<div class="blog">
-  <img src="./images/mybrand img7.jpg" alt="">
-  <div class="layer">
-    <h3>What awaits designers in the future</h3>
-    <p>Technology is changing so fast in world and africa
-      is seeing the most of it all
-      <a href="./others.html/myblog.html"><i class="fa-solid fa-up-right-from-square"></i></a>
-
-
-    </p>
-    </div>
-</div>
  </div>
+</div>
+
  <div class="tosubscribe">
 <p>
  Want to get more! Enter your email to Subscribe
@@ -194,8 +162,8 @@ mobile app that would help street children get the help they need from the socie
  <form ><input type="email" name="email" placeholder="Your email"></form><a href="#" class="btn">Subscribe </a>
 
 </div>
-</div>
-</div>
+
+
 <!-----------------------contact me------------------------->
 <div id="contact">
   <div class="container">
@@ -211,7 +179,7 @@ mobile app that would help street children get the help they need from the socie
     <a href="httpsnsm"><i class="fa-brands fa-linkedin"></i></a>
 
 </div>
-<a href="./images/Nsenga Queen Mireille Cv.pdf" download class="btn btn2">Download cv</a>
+<!-- <a href="./images/Nsenga Queen Mireille Cv.pdf" download class="btn btn2">Download cv</a> -->
   </div>
   <div class="contact-right">
    
@@ -289,10 +257,11 @@ function closemenu(){
 
 <script src="/UI/js/script.js">
 
+
 </script>
 
 
-
+<script src="/UI/js/fetchBlogs.js"></script>
 
 </body>
 </html>
