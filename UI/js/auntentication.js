@@ -14,7 +14,7 @@ function verifyAdmin(email, password) {
     return false;
 }
 function AllowToAccess() {
-    window.location.href = "UI/Admin/dashboard.html";
+    window.location.href = "../Admin/dashboard.html";
 }
 function checkAccess() {
     if (!verifyAuthorization() && !verifyAdmin()) {
@@ -35,7 +35,7 @@ function checkAuthentication() {
   }
   
   function redirectToLoginPage() {
-    window.location.href = "/UI/login.html";
+    window.location.href = "../others/login.html";
   }
   
   function checkAccessToAdminPage() {

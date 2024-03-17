@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     var dataContainer = document.getElementById("blogContainer");
 
-    fetch("http://localhost:5000/blogs", {
+    
+
+    fetch("https://my-brand-backend-1-g6ra.onrender.com/blogs", {
         mode: "cors",
     })
     .then((res) => res.json())
@@ -19,38 +21,93 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
             dataContainer.appendChild(blogElement);
-
-            // Add event listeners for edit and delete buttons
-            var editButton = blogElement.querySelector('.edit-button');
-            editButton.addEventListener('click', function () {
-                editBlog(blog._id);
-            });
+            
 
             var deleteButton = blogElement.querySelector('.delete-button');
             deleteButton.addEventListener('click', function () {
                 deleteBlog(blog._id);
             });
+            var editButton = blogElement.querySelector('.edit-button');
+            editButton.addEventListener('click', function () {
+                editBlog(blog._id, blog.title, blog.content); // Passing current blog data to the edit function
+            });
         });
     });
 
-    function editBlog(blogId) {
-        // Redirect to edit page with blog ID
-        window.location.href = `../Admin/editblog.html?id=${blogId}`;
-    }
-
+   
     function deleteBlog(blogId) {
-        // Send delete request to server
-        fetch(`http://localhost:5000/blogs/${blogId}`, {
+        let token = localStorage.getItem("token")
+        fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
             method: 'DELETE',
             mode: 'cors',
-        })
-        .then(response => {
-            if (response.ok) {
-                // Remove the blog from the UI
-                var blogElement = document.querySelector(`.blog .blog_details button[data-blog-id="${blogId}"]`).closest('.blog');
-                blogElement.remove();
+            headers:{
+                Authorization:token
             }
+        })
+        .then(response => response.json() )
+        .then((data)=>{
+            console.log('deleted successfully',data)
         })
         .catch(error => console.error('Error deleting blog:', error));
     }
+
+    function editBlog(blogId, currentTitle, currentContent) {
+        console.log("Editing blog with ID:", blogId);
+        var blogElement = document.querySelector(`.blog[data-blog-id="${blogId}"]`);
+        if (!blogElement) {
+            console.error(`Blog element with ID ${blogId} not found.`);
+            return;
+        }
+        
+        var blogDetails = blogElement.querySelector('.blog_details');
+        if (!blogDetails) {
+            console.error(`Blog details not found for blog with ID ${blogId}.`);
+            return;
+        }
+    
+        var editForm = document.createElement('form');
+        editForm.innerHTML = `
+            <label for="editTitle">Title:</label>
+            <input type="text" id="editTitle" name="editTitle" value="${currentTitle}"><br><br>
+            <label for="editContent">Content:</label><br>
+            <textarea id="editContent" name="editContent" rows="4" cols="50">${currentContent}</textarea><br><br>
+            <button type="submit" id="submitEdit">Submit Edit</button>
+        `;
+    
+        editForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            
+            let token = localStorage.getItem("token");
+            let editedTitle = editForm.querySelector('#editTitle').value;
+            let editedContent = editForm.querySelector('#editContent').value;
+    
+            // Make a PUT request to update the blog on the backend
+            fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
+                method: 'PUT',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: token
+                },
+                body: JSON.stringify({
+                    title: editedTitle,
+                    content: editedContent
+                })
+            })
+            .then(response => response.json())
+            .then((data) => {
+               
+                console.log('Blog updated successfully', data);
+                
+                createForm.reset();
+            })
+            .catch(error => console.error('Error updating blog:', error));
+        });
+    
+        // Replace the blog details with the edit form
+        blogDetails.innerHTML = ''; // Clear existing details
+        blogDetails.appendChild(editForm);
+    }
+    
+    
 });

@@ -4,9 +4,9 @@
   
     function updateLoginLogoutButton() {
         if (localStorage.getItem('isLoggedIn') === 'true') {
-            loginLogoutButton.textContent = 'Logout';
+            loginLogoutButton.textContent = 'LOGOUT';
         } else {
-            loginLogoutButton.textContent = 'Login';
+            loginLogoutButton.textContent = 'LOGIN';
         }
     }
 

@@ -1,4 +1,4 @@
-/* CSS styles for editblog.html */
+
 
 .blog-container {
     display: flex;
@@ -29,3 +29,23 @@
     margin-top: 10px;
     cursor: pointer;
 }
+.addblog{
+    display: block;
+  margin: 50px auto;
+  width: fit-content;
+  border: 1px solid #B336FF;
+  border-radius: 6px;
+  text-decoration: none;
+  color: black;
+
+  padding: 10px ;
+  transition: background  0.5s;
+
+}
+.addblog:hover{
+    background: #B336FF;
+  }
+
+a{
+  text-decoration: none;
+  }
