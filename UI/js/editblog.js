@@ -21,6 +21,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
             dataContainer.appendChild(blogElement);
+
+        
+            function displayBlogs() {
+                fetch("https://my-brand-backend-1-g6ra.onrender.com/blogs")
+                    .then((res) => res.json())
+                    .then((data) => {
+                        data.forEach(function (blog) {
+                            
+                            var blogElement = document.createElement('div');
+                            blogElement.innerHTML = `
+                                <h2>${blog.title}</h2>
+                                <p>${blog.content}</p>
+                                <button onclick="editBlog('${blog._id}', '${blog.title}', '${blog.content}')">Edit</button>
+                                <button onclick="deleteBlog('${blog._id}')">Delete</button>
+                            `;
+                            blogContainer.appendChild(blogElement);
+                        });
+                    });
+            }
+            
             
 
             var deleteButton = blogElement.querySelector('.delete-button');
@@ -29,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             var editButton = blogElement.querySelector('.edit-button');
             editButton.addEventListener('click', function () {
-                editBlog(blog._id, blog.title, blog.content); // Passing current blog data to the edit function
+                editBlog(blog._id, blog.title, blog.content); 
             });
         });
     });
@@ -52,62 +72,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function editBlog(blogId, currentTitle, currentContent) {
-        console.log("Editing blog with ID:", blogId);
-        var blogElement = document.querySelector(`.blog[data-blog-id="${blogId}"]`);
-        if (!blogElement) {
-            console.error(`Blog element with ID ${blogId} not found.`);
-            return;
-        }
         
-        var blogDetails = blogElement.querySelector('.blog_details');
-        if (!blogDetails) {
-            console.error(`Blog details not found for blog with ID ${blogId}.`);
-            return;
-        }
-    
+        blogContainer.innerHTML = '';
+
+      
         var editForm = document.createElement('form');
         editForm.innerHTML = `
-            <label for="editTitle">Title:</label>
-            <input type="text" id="editTitle" name="editTitle" value="${currentTitle}"><br><br>
-            <label for="editContent">Content:</label><br>
-            <textarea id="editContent" name="editContent" rows="4" cols="50">${currentContent}</textarea><br><br>
-            <button type="submit" id="submitEdit">Submit Edit</button>
+            <input type="text" id="editTitle" value="${currentTitle}">
+            <textarea id="editContent">${currentContent}</textarea>
+            <button onclick="updateBlog('${blogId}')">Update</button>
         `;
-    
-        editForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission behavior
-            
-            let token = localStorage.getItem("token");
-            let editedTitle = editForm.querySelector('#editTitle').value;
-            let editedContent = editForm.querySelector('#editContent').value;
-    
-            // Make a PUT request to update the blog on the backend
-            fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
-                method: 'PUT',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: token
-                },
-                body: JSON.stringify({
-                    title: editedTitle,
-                    content: editedContent
-                })
-            })
-            .then(response => response.json())
-            .then((data) => {
-               
-                console.log('Blog updated successfully', data);
-                
-                createForm.reset();
-            })
-            .catch(error => console.error('Error updating blog:', error));
-        });
-    
-        // Replace the blog details with the edit form
-        blogDetails.innerHTML = ''; // Clear existing details
-        blogDetails.appendChild(editForm);
+        blogContainer.appendChild(editForm);
     }
+
+   
+    function updateBlog(blogId) {
+        var editedTitle = document.getElementById('editTitle').value;
+        var editedContent = document.getElementById('editContent').value;
+
+       
+        fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: editedTitle,
+                content: editedContent
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Blog updated successfully');
+                displayBlogs(); 
+            } else {
+                throw new Error('Failed to update blog');
+            }
+        })
+        .catch(error => console.error('Error updating blog:', error));
+    }
+    // displayBlogs();
     
     
 });

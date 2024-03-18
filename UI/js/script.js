@@ -1,5 +1,5 @@
 
-    // const loginLogoutButton = document.getElementById('loginLogoutButton');
+ 
 
   
     function updateLoginLogoutButton() {
@@ -65,15 +65,38 @@
             displayErrorMessage("name-error", "name can not be empty");
         isValid = false; document.getElementById('submit-error').textContent = ""; 
         }
-        var messages = JSON.parse(localStorage.getItem('messages')) || [];
-        messages.push({ name, email, message });
-        localStorage.setItem('messages', JSON.stringify(messages));
-
-        document.getElementById('contactForm').reset();
-        alert('Message sent successfully');
+        if (isValid) {
+        var formData = {
+            name: name,
+            email: email,
+            message: message
+        };
+        
+        fetch("https://my-brand-backend-1-g6ra.onrender.com/message", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
        
-      });
-      function resetErrorMessages() {
+        .then((data) => {
+           
+            alert('Message sent successfully');
+            document.getElementById('contactForm').reset();
+        })
+        .catch(error => {
+            console.error('Error sending message:', error);
+            alert('Error sending message. Please try again later.');
+        });
+    }
+    });
+
+       
+
+        
+      
+    function resetErrorMessages() {
         document.getElementById("email-error").textContent = "";
         document.getElementById("password-error").textContent = "";
         document.getElementById('submit-error').textContent = "";

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: blogId,
                 title: titleInput.value,
                 description: descriptionInput.value,
-                image: fileReader.result // Base64 image data
+                image: fileReader.result 
             };
 
             const existingIndex = blogs.findIndex(blog => blog.id === blogId);

@@ -73,29 +73,7 @@ document.getElementById("submit").addEventListener("click", function () {
               }
             })
 
-        // var truesuser = JSON.parse(localStorage.getItem("users"));
-        // if (truesuser) {
-        //     var user = truesuser.find((user) => user.email === email && user.password === password);
-        //     if (user) {
-            
-                
-        //         localStorage.setItem("isLoggedIn", "true");
-               
-        //         if (email === "nsengaqueen123@gmail.com" && password === "1234567") {
-        //             localStorage.setItem("userRole", "admin");
-        //             window.location.href = "/dashboard.html";
-        //           } else {
-        //             localStorage.setItem("userRole", "user");
-        //             window.location.href = "/index.html";
-        //           }
-        //     }
-        //     else {
-        //         displayErrorMessage("loginError", "Unrecognised email or password. Please try again.");
-        //     }
-        // }
-        // else {
-        //     displayErrorMessage("loginError", "No registered users found. Please sign up first.");
-        // }
+     
     }
 });
 function isValidEmail(email) {

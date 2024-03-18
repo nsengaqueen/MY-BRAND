@@ -35,7 +35,8 @@ function checkAuthentication() {
   }
   
   function redirectToLoginPage() {
-    window.location.href = "../others/login.html";
+    window.location.href = "../others.html/login.html";
+    
   }
   
   function checkAccessToAdminPage() {

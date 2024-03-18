@@ -1,4 +1,7 @@
-
+body{
+    background-color: black;
+    color: white;
+}
 
 .blog-container {
     display: flex;
@@ -7,7 +10,7 @@
 }
 
 .blog {
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     padding: 20px;
     width: 300px;
 }
@@ -28,24 +31,35 @@
 .delete-button {
     margin-top: 10px;
     cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
 }
 .addblog{
-    display: block;
+ display: block;
   margin: 50px auto;
   width: fit-content;
   border: 1px solid #B336FF;
   border-radius: 6px;
   text-decoration: none;
-  color: black;
-
+  background-color: black;
+  color: white;
   padding: 10px ;
   transition: background  0.5s;
+ 
 
 }
 .addblog:hover{
     background: #B336FF;
+    
+    
   }
 
 a{
   text-decoration: none;
+  }
+  @media only screen and (max-width:800px){
+    .blog-container{
+        margin: 30px;
+    }
+  
   }
