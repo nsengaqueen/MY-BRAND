@@ -49,7 +49,7 @@ document.getElementById("submit").addEventListener("click", function () {
                 
                 if (data.UserRole === "user") {
                   localStorage.setItem("userRole", "user");
-                  window.location.href = "./UI/index.html";
+                  window.location.href = "../index.html";
                 } else {
                   localStorage.setItem("userRole", "admin");
                   window.location.href = "../Admin/dashboard.html";
@@ -62,7 +62,7 @@ document.getElementById("submit").addEventListener("click", function () {
               }
             })
             .catch((error) => {
-              console.error("Error:", error.message);
+            console.error("Error:", error.message);
               if (error.message === '"email" must be a valid email') {
                 displayErrorMessage("email-error", "Please enter a valid email address");
               } else {
