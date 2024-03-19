@@ -45,10 +45,12 @@ document.getElementById("submit").addEventListener("click", function () {
             .then((data) => {
               if (data.token) {
                 localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("fullName",data.fullName);
                 localStorage.setItem("token", data.token);
                 
                 if (data.UserRole === "user") {
                   localStorage.setItem("userRole", "user");
+
                   window.location.href = "../index.html";
                 } else {
                   localStorage.setItem("userRole", "admin");
