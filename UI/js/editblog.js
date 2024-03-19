@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function deleteBlog(blogId) {
         let token = localStorage.getItem("token")
-        fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
+        fetch(`https://my-brand-backend-1-g6ra.onrender.com//blogs/${blogId}`, {
             method: 'DELETE',
             mode: 'cors',
             headers:{

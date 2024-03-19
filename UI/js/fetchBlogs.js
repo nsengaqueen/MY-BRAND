@@ -10,7 +10,7 @@ function toFetchBlogs() {
       console.log(data.data)
       data.data.reverse().forEach(function (blog) {
         dataContainer.innerHTML += `
-        <a href="../UI/others.html/myblog.html?id=${blog._id}"  class="blogs">
+        <a href="../others.html/myblog.html?id=${blog._id}"  class="blogs">
            
     
             <img class="blogimg" src =${blog.images} >  
