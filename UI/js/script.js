@@ -15,8 +15,9 @@ loginLogoutButton.addEventListener('click', () => {
       
         localStorage.setItem('isLoggedIn', 'false');
        
-        updateLoginLogoutButton();
+        
     }
+    setTimeout(updateLoginLogoutButton, 50);
 });
 
 updateLoginLogoutButton();
