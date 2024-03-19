@@ -49,7 +49,7 @@ document.getElementById("submit").addEventListener("click", function () {
                 
                 if (data.UserRole === "user") {
                   localStorage.setItem("userRole", "user");
-                  window.location.href = "/UI/index.html";
+                  window.location.href = ".UI/index.html";
                 } else {
                   localStorage.setItem("userRole", "admin");
                   window.location.href = "../Admin/dashboard.html";
