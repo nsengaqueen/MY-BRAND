@@ -2,31 +2,24 @@
  
 
   
-    function updateLoginLogoutButton() {
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            loginLogoutButton.textContent = 'LOGIN';
-        } else {
-            loginLogoutButton.textContent = 'LOGOUT';
-        }
+   function updateLoginLogoutButton() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        loginLogoutButton.textContent = 'LOGOUT';
+    } else {
+        loginLogoutButton.textContent = 'LOGIN';
     }
+}
 
-   
-    loginLogoutButton.addEventListener('click', () => {
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            
-            localStorage.setItem('isLoggedIn', 'false');
-         
-        } else {
-           
-            localStorage.setItem('isLoggedIn', 'true');
-            
-        }
+loginLogoutButton.addEventListener('click', () => {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      
+        localStorage.setItem('isLoggedIn', 'false');
+       
         updateLoginLogoutButton();
-    });
+    }
+});
 
-
-    updateLoginLogoutButton();
-
+updateLoginLogoutButton();
 
 
 
