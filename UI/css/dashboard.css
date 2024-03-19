@@ -73,3 +73,17 @@ body {
 .dashboard-nav nav ul li a:hover::after{
   width: 100%;
 }
+/*-----------------------------------------responsiveness for smaller screen -----------------*/
+@media only screen and (max-width:800px){
+  
+    .dashboard-nav{
+      margin: 30px;
+     font-size: 15px;
+     display: block;
+  }
+  .content{
+    font-size: 15px;
+    display: block;
+  }
+ 
+}
