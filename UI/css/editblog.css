@@ -58,8 +58,10 @@ a{
   text-decoration: none;
   }
   @media only screen and (max-width:800px){
-    .blog-container{
-        margin: 30px;
-    }
+    .blog-container {
+        width: 100%;
+        margin: 5%;
+      }
+    
   
   }

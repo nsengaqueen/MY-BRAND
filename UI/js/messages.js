@@ -5,7 +5,7 @@ function displayMessages() {
   })
     .then((res) => res.json())
     .then((data) => {
-    console.log(data)
+      console.log(data);
       data.data.forEach(function(message) {
         var messageElement = document.createElement('div');
         messageElement.innerHTML = `
@@ -16,40 +16,33 @@ function displayMessages() {
           <hr>
         `;
         dashboard.appendChild(messageElement);
+
+        // Add event listener for delete button inside the loop
+        var deleteButton = messageElement.querySelector('.delete-button');
+        deleteButton.addEventListener('click', function () {
+          deleteMessage(message.id); // Call deleteMessage with message id
+        });
       });
     })
-    dashboard.innerHTML = ''; 
-  
-  }
-  
-  displayMessages();
-
-  var deleteButton = messageElement.querySelector('.delete-button');
-  deleteButton.addEventListener('click', function () {
-      deleteBlog(message._id);
-  });
-  
-function deleteMessage(messageId) {
-  let token = localStorage.getItem("token")
-    fetch(`https://my-brand-backend-1-g6ra.onrender.com/message/${messageId}`, {
-        method: 'DELETE',
-        mode: 'cors',
-        headers:{
-          Authorization:token
-        }
-    })
-    .then(response => response.json())
-    .then((data) => {
-        console.log('Message deleted successfully', data);
-       
-        fetchMessages();
-    })
-    .catch(error => {
-        console.error('Error deleting message:', error);
-        alert('Error deleting message. Please try again later.');
-    });
+    .catch(error => console.error('Error fetching messages:', error));
 }
 
+// Call displayMessages function
+displayMessages();
 
-  
-  
+function deleteMessage(messageId) {
+  let token = localStorage.getItem("token");
+  fetch(`https://my-brand-backend-1-g6ra.onrender.com/message/${messageId}`, {
+    method: 'DELETE',
+    mode: 'cors',
+    headers:{
+      Authorization: token
+    }
+  })
+  .then(response => response.json())
+  .then((data) => {
+    console.log('Message deleted successfully', data);
+    // Optionally, you can update the UI to remove the deleted message
+  })
+  .catch(error => console.error('Error deleting message:', error));
+}

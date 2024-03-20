@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then((data) => {
                 console.log('Blog updated successfully', data);
-                // Optionally update the blog element's title and content in the DOM
+               
                 blogElement.querySelector('h3').innerText = editedTitle;
                 blogElement.querySelector('p').innerText = editedContent;
             })
