@@ -62,11 +62,36 @@ await fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
           }
         
       })
-      .then(response => response.json())
+      .then((response) => {
+        if (response.ok) {
+          location.reload();
+          return response.json();
+        } else if (response.status === 401) {
+          throw new Error("Invalid token");
+        } else if (response.status === 400) {
+          throw new Error(" blog already liked");
+        } else {
+          throw new Error("Failed to like");
+        }
+      })
       .then((data) => {
-         
-          alert('liked successfully')
-         
+        console.log(" checkinf if liked successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error liking:", error);
+        if (error.message === "Invalid token") {
+          displayErrorMessage("likeError", "Please login first");
+        } else if (error.message === "blog already liked") {
+          displayErrorMessage(
+            "likeError",
+            "blog already liked"
+          );
+        } else {
+          displayErrorMessage(
+            "likeError",
+            "liking failed Please try again"
+          );
+        }
       })
       .catch(error => console.error('Error liking:', error));
   });
