@@ -17,17 +17,16 @@ function displayMessages() {
         `;
         dashboard.appendChild(messageElement);
 
-        // Add event listener for delete button inside the loop
         var deleteButton = messageElement.querySelector('.delete-button');
         deleteButton.addEventListener('click', function () {
-          deleteMessage(message.id); // Call deleteMessage with message id
+          deleteMessage(message.id); 
         });
       });
     })
     .catch(error => console.error('Error fetching messages:', error));
 }
 
-// Call displayMessages function
+
 displayMessages();
 
 function deleteMessage(messageId) {
@@ -42,7 +41,7 @@ function deleteMessage(messageId) {
   .then(response => response.json())
   .then((data) => {
     console.log('Message deleted successfully', data);
-    // Optionally, you can update the UI to remove the deleted message
+   
   })
   .catch(error => console.error('Error deleting message:', error));
 }

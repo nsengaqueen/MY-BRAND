@@ -8,14 +8,15 @@ let blogs = document.getElementById("singleBlog") ;
 
 await fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
     method: "GET",
+    mode : "cors",
     headers: {
       "Content-Type": "application/json",
     },
   })
     .then((res) => res.json())
     .then((data) => {
-   
-      
+     
+
       blogs.innerHTML += `<div  class="blogheader">
       ${data?.title}
 
@@ -35,21 +36,28 @@ await fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
        <i class="far fa-heart"></i> Like
      </button>
      <div id="like-count">${data?.likes}</div>
+     <div id="likeError"></div>
    </div>  
 
-   <div class="commments">
-     <div id="comment-form">
-       <textarea id="comment" placeholder="  Add a comment..."></textarea>
-       <button id="submit-comment">Submit</button>
-     </div>
-     <div id="comment-section">
-       <h4>Comments:</h4>
-       <ul id="comments-list">${data?.comments} </ul>
-   </div>
-     </div>
+   <button id="submit-comment">Submit</button>
+   <textarea id="comment" placeholder="  Add a comment..."></textarea>
    </div>
     </div> `
-    })
+    var commentCard = ''
+    for( var i = blogs.comments?.length-1;i>=0;i--){
+    commentCard.innerHTML+=`<div class="commments">
+    <div id="comment-form">
+
+    </div>
+    <div id="comment-section">
+      <h4>Comments:</h4>
+      <ul id="comments-list">${data?.comments[i].comment} </ul>
+  </div>
+    </div>`}
+    document.getElementById("commentCard").innerHTML = commentCard
+    }
+  
+    )
   document.getElementById("like-btn").addEventListener('click', function() {
     
     let token = localStorage.getItem("token");
@@ -75,7 +83,7 @@ await fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
         }
       })
       .then((data) => {
-        console.log(" checkinf if liked successfully:", data);
+        console.log(" checking if liked successfully:", data);
       })
       .catch((error) => {
         console.error("Error liking:", error);
@@ -97,6 +105,53 @@ await fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
   });
     
   
+  document.getElementById("submit-comment").addEventListener('click', function(e) {
+    e.preventDefault();
+    var commentInput = document.getElementById('comment').value;
+    if(!commentInput){
+      alert("no comment entered")
+    }
+    let token = localStorage.getItem("token");
+    
+        fetch(`https://my-brand-backend-1-g6ra.onrender.com/add-comment/${blogId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify({ commentInput }),
+          'Accept': 'application/json, tesxt/plain, */*',
+      })
+      .then((response) => {
+        if (response.ok) {
+          location.reload();
+          return response.json();
+        } else if (response.status === 401) {
+          throw new Error("Invalid token");
+        
+        } else {
+          throw new Error("Failed to comment");
+        }
+      })
+      .then((data) => {
+        console.log(" checking if commented successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error commenting:", error);
+        if (error.message === "Invalid token") {
+          displayErrorMessage("likeError", "Please login first");
+       
+        } else {
+          displayErrorMessage(
+            "likeError",
+            "commenting failed Please try again"
+          );
+        }
+      })
+      .catch(error => console.error('Error commenting:', error));
+  });
+    
+
     // document.addEventListener('DOMContentLoaded', function() {
     //   const submitBtn = document.getElementById('submit-comment');
     //   const commentInput = document.getElementById('comment');
@@ -153,10 +208,19 @@ await fetch(`https://my-brand-backend-1-g6ra.onrender.com/blogs/${blogId}`, {
       //   alert('Please enter a comment.');
       // }
     // });
-    
+  
 })
 
 
+function resetErrorMessage(id) {
+  document.getElementById(id).textContent = "";
+}
+
+function displayErrorMessage(id, message) {
+  var errorMessageElement = document.getElementById(id);
+  errorMessageElement.textContent = message;
+  errorMessageElement.style.color = "red";
+} 
 
 
 
