@@ -3,9 +3,15 @@ function displayMessages() {
   fetch("https://my-brand-backend-1-g6ra.onrender.com/message", {
     mode: "cors",
   })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    return res.json();
+  })
+  .then((data) => {
+    console.log(data);
+    if (data && data.data) {
       data.data.forEach(function(message) {
         var messageElement = document.createElement('div');
         messageElement.innerHTML = `
@@ -22,7 +28,10 @@ function displayMessages() {
           deleteMessage(message.id); 
         });
       });
-    })
+    }else{
+      console.error('Unexpected JSON structure:', data);
+    }
+  })
     .catch(error => console.error('Error fetching messages:', error));
 }
 
@@ -38,10 +47,15 @@ function deleteMessage(messageId) {
       Authorization: token
     }
   })
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
   .then((data) => {
     console.log('Message deleted successfully', data);
-   
+    
   })
   .catch(error => console.error('Error deleting message:', error));
 }
